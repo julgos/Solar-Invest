@@ -97,4 +97,3 @@ Oprogramowanie udostępniane jest na licencji otwartej MIT. Licencja ta umożliw
    * punkt zwrotu inwestycji.
 10. Przeanalizuj wykres cash flow przedstawiający przebieg opłacalności inwestycji w czasie.
 
-© 2026 Solar Invest Project
