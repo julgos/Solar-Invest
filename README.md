@@ -88,3 +88,30 @@ Struktura Plików
 - analiza-projekt.ipynb - Notatnik Jupyter z analizą wstępną i testami API (Development).
 - requirements.txt - Lista zależności projektowych.
 - .streamlit/config.toml - Konfiguracja motywu graficznego (kolory, fonty).
+
+---
+
+## Sceniarusze testów
+## 5. Scenariusze testowe
+
+| ID wymagania | Nazwa wymagania | Scenariusz testu |
+|-------------|-----------------|------------------|
+| 1 | Konfiguracja aplikacji webowej | Uruchamiamy aplikację poleceniem `streamlit run app.py` i sprawdzamy, czy otwiera się ona w przeglądarce internetowej oraz czy widoczny jest główny widok aplikacji. |
+| 3 | Pobieranie danych nasłonecznienia | Klikamy na mapie kolejno lokalizacje: Warszawa, Gdańsk i Kraków, a następnie sprawdzamy, czy wyświetlane wartości nasłonecznienia różnią się między lokalizacjami. |
+| 4 | Obsługa błędów API | Podczas standardowego działania aplikacji sprawdzamy, czy po kliknięciu lokalizacji dane są wyświetlane bez błędów i aplikacja nie przestaje działać. |
+| 5 | Konwersja jednostek | Sprawdzamy, czy wartość nasłonecznienia wyświetlana jest w jednostkach kWh/m², zgodnie z opisem w interfejsie. |
+| 6 | Symulacja cash flow | Po wykonaniu symulacji sprawdzamy, czy w pierwszym roku bilans finansowy jest ujemny (koszt inwestycji), a w kolejnych latach stopniowo rośnie. |
+| 7 | Uwzględnienie inflacji | Zmieniamy wartość inflacji w panelu bocznym (np. 0% i 10%) i sprawdzamy, czy zmienia się wynik finansowy inwestycji. |
+| 8 | Autokonsumpcja i sprzedaż energii | Zmieniamy poziom autokonsumpcji energii i obserwujemy, czy wynik finansowy inwestycji ulega zmianie. |
+| 9 | Punkt zwrotu inwestycji | Sprawdzamy, czy aplikacja wskazuje rok, w którym bilans finansowy przechodzi z wartości ujemnej na dodatnią. |
+| 11 | Sidebar konfiguracyjny | Sprawdzamy, czy w panelu bocznym dostępne są pola do zmiany parametrów instalacji oraz rynku energii. |
+| 12 | Obliczanie mocy instalacji | Zmieniamy wartość dostępnej powierzchni dachu (np. 20 m² i 40 m²) i sprawdzamy, czy obliczona moc instalacji zmienia się odpowiednio. |
+| 14 | Interaktywna mapa | Sprawdzamy, czy mapa umożliwia przybliżanie, oddalanie oraz reaguje na kliknięcia użytkownika. |
+| 15 | Wybór lokalizacji | Klikamy wybrane miejsce na mapie i sprawdzamy, czy aplikacja oblicza dane dla tej konkretnej lokalizacji. |
+| 16 | Estymacja rocznej produkcji energii | Po wyborze lokalizacji sprawdzamy, czy aplikacja wyświetla roczną produkcję energii i czy zmienia się ona po zmianie lokalizacji. |
+| 17 | Prezentacja kluczowych wskaźników efektywności (KPI) | Sprawdzamy, czy aplikacja wyświetla wynik finansowy inwestycji oraz rok zwrotu inwestycji w formie wskaźników. |
+| 18 | Wykres cash flow | Sprawdzamy, czy po wykonaniu symulacji wyświetlany jest wykres przedstawiający zmianę skumulowanego bilansu finansowego w czasie. |
+| 2 | Czytelność interfejsu | Sprawdzamy, czy wszystkie elementy interfejsu są czytelne, logicznie rozmieszczone i zrozumiałe dla użytkownika. |
+| 10 | Degradacja paneli | Sprawdzamy, czy w kolejnych latach symulacji produkcja energii rośnie wolniej, co wskazuje na uwzględnienie spadku wydajności paneli. |
+| 13 | Wybór stylu mapy | Zmieniamy styl mapy na standardowy, satelitarny oraz jasny i sprawdzamy, czy mapa zmienia swój wygląd. |
+
