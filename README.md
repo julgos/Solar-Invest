@@ -96,7 +96,7 @@ Struktura Plików
 
 | ID wymagania | Nazwa wymagania | Scenariusz testu |
 |-------------|-----------------|------------------|
-| 1 | Konfiguracja aplikacji webowej | Uruchamiamy aplikację poleceniem `streamlit run app.py` i sprawdzamy, czy otwiera się ona w przeglądarce internetowej oraz czy widoczny jest główny widok aplikacji. |
+| 1 | Konfiguracja aplikacji webowej | Uruchamiamy aplikację poleceniem `streamlit run app2.py` i sprawdzamy, czy otwiera się ona w przeglądarce internetowej oraz czy widoczny jest główny widok aplikacji. |
 | 3 | Pobieranie danych nasłonecznienia | Klikamy na mapie kolejno lokalizacje: Warszawa, Gdańsk i Kraków, a następnie sprawdzamy, czy wyświetlane wartości nasłonecznienia różnią się między lokalizacjami. |
 | 4 | Obsługa błędów API | Podczas standardowego działania aplikacji sprawdzamy, czy po kliknięciu lokalizacji dane są wyświetlane bez błędów i aplikacja nie przestaje działać. |
 | 5 | Konwersja jednostek | Sprawdzamy, czy wartość nasłonecznienia wyświetlana jest w jednostkach kWh/m², zgodnie z opisem w interfejsie. |
