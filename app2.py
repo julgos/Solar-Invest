@@ -5,7 +5,7 @@ import folium
 from streamlit_folium import st_folium
 import numpy as np
 
-# --- 1. KONFIGURACJA STRONY ---
+# Wymaganie 1. Konfiguracja aplikacji webowej
 st.set_page_config(
     page_title="Solar Invest",
     page_icon="☀️",
@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- 2. CSS - DESIGN SYSTEM ---
+# Wymaganie 2.Czytelność interfejsu
 st.markdown("""
 <style>
     .stApp { background-color: #FFFFFF; }
@@ -44,7 +44,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# --- 3. BACKEND (LOGIKA BIZNESOWA) ---
+# Wymaganie 4.Obsługa błędów API
 def get_solar_data(lat, lon):
     try:
         url = "https://archive-api.open-meteo.com/v1/archive"
@@ -53,25 +53,27 @@ def get_solar_data(lat, lon):
             "start_date": "2022-01-01", "end_date": "2022-12-31",
             "daily": "shortwave_radiation_sum", "timezone": "auto"
         }
+# Wymaganie 3.Pobieranie danych nasłonecznienia
         r = requests.get(url, params=params)
         data = r.json()
+# Wymaganie 5.Konwersja jednostek
         return (np.array(data['daily']['shortwave_radiation_sum']) * 0.277).sum()
     except:
         return 0
-
+        
 def calculate_roi_advanced(start_production, cost, price_buy, price_sell, inflation, auto_consumption, years=30):
     cash_flow = [-cost]
     cumulative_cash = [-cost]
     
     current_price_buy = price_buy
     current_price_sell = price_sell
-    
+# Wymaganie 10. Degradacja paneli
     degradation_rate = 0.005  
     opex_yearly = 150         
     
     for year in range(1, years + 1):
         year_prod = start_production * (1 - (degradation_rate * (year - 1)))
-        
+# Wymaganie 8. Autokonsumpcja i sprzedaż energii
         used = year_prod * (auto_consumption / 100)
         sold = year_prod - used
         
@@ -80,14 +82,15 @@ def calculate_roi_advanced(start_production, cost, price_buy, price_sell, inflat
         total = savings + earnings - opex_yearly
         
         cash_flow.append(total)
+# Wymaganie 6. Symulacja cash flow
         cumulative_cash.append(cumulative_cash[-1] + total)
-        
+# Wymaganie 7. Uwzględnienie inflacji       
         current_price_buy *= (1 + inflation/100)
         current_price_sell *= (1 + inflation/100)
     
     return pd.DataFrame({"Rok": range(0, years + 1), "Bilans": cumulative_cash})
 
-# --- 4. SIDEBAR ---
+# Wymaganie 11.Sidebar konfiguracyjny
 with st.sidebar:
     col_left, col_center, col_right = st.columns([1, 2, 1])
     with col_center:
@@ -97,23 +100,14 @@ with st.sidebar:
     st.markdown("---")
     
     with st.expander("1. Parametry Instalacji", expanded=True):
-        # --- ZMIANA: Podajemy powierzchnię, obliczamy moc ---
+# Wymaganie 12. Obliczanie mocy instalacji
         roof_area = st.number_input("Dostępna powierzchnia dachu (m²)", value=30, step=5)
-        
-        # Przelicznik: 1 kWp zajmuje ok. 5.2 m2
         power_calculated = roof_area / 5.2
-        
-        # Wyświetlamy wynik obliczeń na niebiesko
         st.info(f"⚡ Możliwa moc instalacji: **{power_calculated:.2f} kWp**")
-        
-        # Koszt nadal podajemy ręcznie, ale z podpowiedzią
         estimated_market_cost = power_calculated * 4500 # Średnio 4500 zł za kWp
-        
         cost = st.number_input("Koszt inwestycji (PLN)", value=25000, step=1000, 
                                help=f"Rynkowy koszt dla {power_calculated:.1f} kWp to ok. {estimated_market_cost:,.0f} zł")
-        
         st.caption(f"Sugerowany koszt rynkowy: ok. {estimated_market_cost:,.0f} PLN")
-        
         auto_rate = st.slider("Autokonsumpcja (%)", 0, 100, 25, help="Ile energii zużywasz na bieżąco?")
 
     with st.expander("2. Parametry Rynku", expanded=False):
@@ -129,12 +123,12 @@ with st.sidebar:
     
     st.info("👇 Wybierz styl mapy i kliknij lokalizację!")
 
-# --- 5. GŁÓWNY WIDOK ---
+
 st.subheader(f"🗺️ Analiza Rentowności (Perspektywa: {user_years} lat)")
 
 col_map, col_results = st.columns([1.3, 1], gap="large")
 
-# --- LEWA KOLUMNA: MAPA ---
+# Wymagania 13. Wybór stylu mapy
 with col_map:
     map_style = st.radio(
         "Wybierz widok mapy:",
@@ -150,10 +144,12 @@ with col_map:
     else:
         tiles_url, attr = "CartoDB positron", None
 
+# Wymaganie 14.Interaktywna mapa 
     m = folium.Map(location=[52.0, 19.0], zoom_start=6, tiles=tiles_url, attr=attr)
     folium.LatLngPopup().add_to(m)
     map_output = st_folium(m, height=480, width=None)
 
+# Wymaganie 15. Wybór lokalizacji
     lat, lon = None, None
     if map_output['last_clicked']:
         lat = map_output['last_clicked']['lat']
@@ -161,7 +157,7 @@ with col_map:
         
         with st.spinner('Pobieranie danych satelitarnych...'):
             rad = get_solar_data(lat, lon)
-            # Używamy Mocy Wyliczonej z Powierzchni (power_calculated)
+# Wymaganie 16.Estymacja rocznej produkcji energii 
             prod_start = rad * power_calculated * 0.82 
             
             st.markdown("###### ☀️ Warunki lokalne:")
@@ -169,12 +165,10 @@ with col_map:
             c1.metric("Nasłonecznienie", f"{rad:.0f} kWh/m²")
             c2.metric("Produkcja roczna", f"{prod_start:.0f} kWh")
 
-# --- PRAWA KOLUMNA: WYNIKI ---
 with col_results:
     if lat:
-        # Obliczenia z nową mocą
         df = calculate_roi_advanced(prod_start, cost, price_buy, price_sell, inflation, auto_rate, years=30)
-        
+# Wymaganie 9. Punkt zwrotu inwestycji    
         custom_result = df[df['Rok'] == user_years]['Bilans'].values[0]
         break_even = df[df['Bilans'] >= 0]
         year_be = break_even['Rok'].min() if not break_even.empty else None
@@ -184,6 +178,7 @@ with col_results:
         k1, k2 = st.columns(2)
         delta_color = "normal" if custom_result > 0 else "inverse"
         
+# Wymaganie 17. Prezentacja kluczowych wskaźników efektywności (KPI)
         k1.metric(f"Wynik finansowy z inwestycji po {user_years} latach", 
                   f"{custom_result:,.0f} PLN", 
                   delta="Zysk/Strata netto", delta_color=delta_color)
@@ -195,6 +190,8 @@ with col_results:
             
         st.markdown("---")
         st.markdown("###### Symulacja Cash Flow (30 lat)")
+        
+# Wymaganie 18. Wykres cash flow
         st.area_chart(df.set_index("Rok")['Bilans'], color=["#0066CC"])
         
         if custom_result > 0:
