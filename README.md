@@ -68,24 +68,33 @@ Oprogramowanie udostępniane jest na licencji otwartej MIT. Licencja ta umożliw
 ---
 ## Jak uruchomić projekt lokalnie?
 
-Aby uruchomić aplikację na własnym komputerze, wykonaj następujące kroki:
+## Jak używać aplikacji Solar Invest
 
-1. **Sklonuj repozytorium:**
+1. Uruchom aplikację poleceniem:
+
    ```bash
-   git clone [https://github.com/TWOJA_NAZWA_UZYTKOWNIKA/Solar-Invest.git](https://github.com/TWOJA_NAZWA_UZYTKOWNIKA/Solar-Invest.git)
-   cd Solar-Invest
-Zainstaluj wymagane biblioteki: Zalecane jest użycie wirtualnego środowiska (venv).
-Bash
-pip install -r requirements.txt
-Uruchom aplikację:
-Bash
-python -m streamlit run app2.py
-Aplikacja otworzy się automatycznie w przeglądarce pod adresem http://localhost:8501.
+   streamlit run app.py
+   ```
+2. Otwórz aplikację w przeglądarce internetowej (domyślnie: `http://localhost:8501`).
+3. W panelu bocznym wprowadź parametry instalacji:
 
-Struktura Plików
-app2.py - Główny plik aplikacji (Production Ready).
-analiza-projekt.ipynb - Notatnik Jupyter z analizą wstępną i testami API (Development).
-requirements.txt - Lista zależności projektowych.
-.streamlit/config.toml - Konfiguracja motywu graficznego (kolory, fonty).
+   * powierzchnię dachu,
+   * koszt inwestycji,
+   * poziom autokonsumpcji.
+4. Ustaw parametry rynkowe:
+
+   * cenę zakupu energii,
+   * cenę sprzedaży energii,
+   * poziom inflacji.
+5. Wybierz horyzont analizy (liczbę lat).
+6. Wybierz styl mapy (standardowa, satelitarna lub jasna).
+7. Kliknij na mapę, aby wybrać lokalizację inwestycji.
+8. Poczekaj na pobranie danych nasłonecznienia dla wybranej lokalizacji.
+9. Sprawdź wyniki analizy:
+
+   * roczną produkcję energii,
+   * bilans finansowy,
+   * punkt zwrotu inwestycji.
+10. Przeanalizuj wykres cash flow przedstawiający przebieg opłacalności inwestycji w czasie.
 
 © 2026 Solar Invest Project
