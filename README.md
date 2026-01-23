@@ -73,8 +73,9 @@ Aby uruchomić aplikację na własnym komputerze, wykonaj następujące kroki:
 
 1. **Sklonuj repozytorium:**
    ```bash
-   git clone [https://github.com/julgos/Solar-Invest.git]
-   cd Solar-Invest
+  git clone https://github.com/julgos/Solar-Invest.git
+  ```bash
+  cd Solar-Invest
 Zainstaluj wymagane biblioteki: 
 Zalecane jest użycie wirtualnego środowiska (venv).
 python -m venv venv
