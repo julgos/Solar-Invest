@@ -73,13 +73,14 @@ Aby uruchomić aplikację na własnym komputerze, wykonaj następujące kroki:
 
 1. **Sklonuj repozytorium:**
    ```bash
-   git clone [https://github.com/TWOJA_NAZWA_UZYTKOWNIKA/Solar-Invest.git](https://github.com/TWOJA_NAZWA_UZYTKOWNIKA/Solar-Invest.git)
+   git clone [https://github.com/julgos/Solar-Invest.git]
    cd Solar-Invest
-Zainstaluj wymagane biblioteki: Zalecane jest użycie wirtualnego środowiska (venv).
-Bash
+Zainstaluj wymagane biblioteki: 
+Zalecane jest użycie wirtualnego środowiska (venv).
+python -m venv venv
+.\venv\Scripts\activate (Windows)
+source venv/bin/activate (MacOS)
 pip install -r requirements.txt
-Uruchom aplikację:
-Bash
 python -m streamlit run app2.py
 Aplikacja otworzy się automatycznie w przeglądarce pod adresem http://localhost:8501.
 
