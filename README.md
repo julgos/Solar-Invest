@@ -72,9 +72,10 @@ Oprogramowanie udostępniane jest na licencji otwartej MIT. Licencja ta umożliw
 Aby uruchomić aplikację na własnym komputerze, wykonaj następujące kroki:
 
 1. **Sklonuj repozytorium:**
-   ```bash
-  git clone https://github.com/julgos/Solar-Invest.git
-  ```bash
+```bash
+git clone [https://github.com/julgos/Solar-Invest.git](https://github.com/julgos/Solar-Invest.git)
+cd Solar-Invest
+```
   cd Solar-Invest
 Zainstaluj wymagane biblioteki: 
 Zalecane jest użycie wirtualnego środowiska (venv).
@@ -93,13 +94,11 @@ Struktura Plików
 
 ---
 
-## Sceniarusze testów
-
-
+## Scenariusze testów
 
 | ID wymagania | Scenariusz testu | Status |
-|-------------|------------------|--------|
-| 1 | Uruchamiamy aplikację poleceniem `streamlit run app.py` i sprawdzamy, czy otwiera się ona w przeglądarce internetowej oraz czy widoczny jest główny widok aplikacji. | Sprawdzono |
+|:---:|:---|:---:|
+| 1 | Uruchamiamy aplikację poleceniem `streamlit run app2.py` i sprawdzamy, czy otwiera się ona w przeglądarce internetowej oraz czy widoczny jest główny widok aplikacji. | Sprawdzono |
 | 3 | Klikamy na mapie kolejno lokalizacje: Warszawa, Gdańsk i Kraków, a następnie sprawdzamy, czy wyświetlane wartości nasłonecznienia różnią się między lokalizacjami. | Sprawdzono |
 | 4 | Podczas standardowego działania aplikacji sprawdzamy, czy po kliknięciu lokalizacji dane są wyświetlane bez błędów i aplikacja nie przestaje działać. | Sprawdzono |
 | 5 | Sprawdzamy, czy wartość nasłonecznienia wyświetlana jest w jednostkach kWh/m², zgodnie z opisem w interfejsie. | Sprawdzono |
