@@ -67,30 +67,57 @@ Oprogramowanie udostępniane jest na licencji otwartej MIT. Licencja ta umożliw
 
 ---
 
-## Jak uruchomić projekt lokalnie?
+### Jak uruchomić projekt lokalnie?
 
 Aby uruchomić aplikację na własnym komputerze, wykonaj następujące kroki:
 
 1. **Sklonuj repozytorium:**
-```bash
-git clone [https://github.com/julgos/Solar-Invest.git](https://github.com/julgos/Solar-Invest.git)
-cd Solar-Invest
-```
-  cd Solar-Invest
-Zainstaluj wymagane biblioteki: 
-Zalecane jest użycie wirtualnego środowiska (venv).
-python -m venv venv
-.\venv\Scripts\activate (Windows)
-source venv/bin/activate (MacOS)
-pip install -r requirements.txt
-python -m streamlit run app2.py
-Aplikacja otworzy się automatycznie w przeglądarce pod adresem http://localhost:8501.
+   ```bash
+   git clone https://github.com/julgos/Solar-Invest.git
+   ```
 
-Struktura Plików
-- app2.py - Główny plik aplikacji (Production Ready).
-- analiza-projekt.ipynb - Notatnik Jupyter z analizą wstępną i testami API (Development).
-- requirements.txt - Lista zależności projektowych.
-- .streamlit/config.toml - Konfiguracja motywu graficznego (kolory, fonty).
+2. **Wejdź do folderu z projektem:**
+   ```bash
+   cd Solar-Invest
+   ```
+
+3. **Utwórz wirtualne środowisko (zalecane):**
+   ```bash
+   python -m venv venv
+   ```
+
+4. **Aktywuj środowisko:**
+
+   * **Dla systemu Windows:**
+     ```bash
+     .\venv\Scripts\activate
+     ```
+
+   * **Dla systemu macOS / Linux:**
+     ```bash
+     source venv/bin/activate
+     ```
+
+5. **Zainstaluj wymagane biblioteki:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Uruchom aplikację:**
+   ```bash
+   python -m streamlit run app2.py
+   ```
+
+   Aplikacja otworzy się automatycznie w przeglądarce pod adresem `http://localhost:8501`.
+
+---
+
+### Struktura Plików
+
+* `app2.py` - Główny plik aplikacji (Production Ready).
+* `analiza-projekt.ipynb` - Notatnik Jupyter z analizą wstępną i testami API (Development).
+* `requirements.txt` - Lista zależności projektowych.
+* `.streamlit/config.toml` - Konfiguracja motywu graficznego (kolory, fonty).
 
 ---
 
