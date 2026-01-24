@@ -6,7 +6,9 @@
 ![Open-Meteo](https://img.shields.io/badge/API-Open--Meteo-orange?style=for-the-badge)
 
 **Nazwa pełna** System Analizy Rentowności PV
+---
 **Nazwa skrócona** Solar Invest
+---
 
 ## 1. O projekcie
 **Solar Invest** jest aplikacją webową wspierającą analizę opłacalności inwestycji w instalacje fotowoltaiczne dla użytkowników indywidualnych. System umożliwia przeprowadzenie symulacji finansowej na podstawie rzeczywistych danych nasłonecznienia, parametrów technicznych instalacji oraz zmiennych rynkowych, takich jak ceny energii elektrycznej czy poziom inflacji.
