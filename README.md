@@ -5,7 +5,10 @@
 ![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=leaflet&logoColor=white)
 ![Open-Meteo](https://img.shields.io/badge/API-Open--Meteo-orange?style=for-the-badge)
 
-## O projekcie
+**Nazwa pełna** System Analizy Rentowności PV
+**Nazwa skrócona** Solar Invest
+
+## 1. O projekcie
 **Solar Invest** jest aplikacją webową wspierającą analizę opłacalności inwestycji w instalacje fotowoltaiczne dla użytkowników indywidualnych. System umożliwia przeprowadzenie symulacji finansowej na podstawie rzeczywistych danych nasłonecznienia, parametrów technicznych instalacji oraz zmiennych rynkowych, takich jak ceny energii elektrycznej czy poziom inflacji.
 Głównym celem aplikacji jest dostarczenie użytkownikowi prostego i intuicyjnego narzędzia decyzyjnego, które pozwala oszacować roczną produkcję energii, skumulowany bilans finansowy oraz punkt zwrotu inwestycji w zadanym horyzoncie czasowym. Aplikacja wykorzystuje interaktywną mapę do wyboru lokalizacji inwestycji oraz prezentuje wyniki analizy w postaci kluczowych wskaźników efektywności (KPI) i wykresu cash flow, co umożliwia szybkie i czytelne porównanie opłacalności inwestycji.
 
