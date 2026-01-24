@@ -8,6 +8,7 @@
 **Nazwa pełna** System Analizy Rentowności Instalacji Fotowoltaicznej
 
 **Nazwa skrócona** Solar Invest
+
 ---
 
 ## 1. O projekcie
